@@ -1,16 +1,12 @@
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import DomXSS from './DomXSS';
 import Home from './Home';
+import Navigation from './Navigation';
 
 function App() {
   return (
     <Router>
-      <nav className="Menu">
-        <Link to="/">React Test Bench</Link>
-        <ul>
-          <Link to="/dom-xss">DOM XSS</Link>
-        </ul>
-      </nav>
+      <Navigation />
       <main className="App">
         <Switch>
           <Route exact path="/" component={Home} />
