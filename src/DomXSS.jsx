@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const DANGEROUS_USER_INPUT = '<img src="" onerror="alert(\'gotcha!!\');">';
+const SAMPLE_ATTACK = '<img src="" onerror="alert(\'gotcha!!\');">';
 
 /**
  * @param {import('history').Location} location
@@ -8,7 +8,7 @@ const DANGEROUS_USER_INPUT = '<img src="" onerror="alert(\'gotcha!!\');">';
  */
 const dangerousLinkTo = (location) => ({
   pathname: location.pathname,
-  hash: DANGEROUS_USER_INPUT,
+  hash: SAMPLE_ATTACK,
 });
 
 /**
@@ -17,7 +17,7 @@ const dangerousLinkTo = (location) => ({
  */
 const safeLinkTo = (location) => ({
   pathname: location.pathname,
-  search: DANGEROUS_USER_INPUT,
+  search: SAMPLE_ATTACK,
 });
 
 const createDangerousHash = () => ({
