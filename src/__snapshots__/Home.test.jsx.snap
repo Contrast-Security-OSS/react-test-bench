@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<div>
+  <div
+    class="Home"
+  >
+    <header
+      class="Home-header"
+    >
+      <img
+        alt="logo"
+        class="Home-logo"
+        src="logo.svg"
+      />
+      <p>
+        Edit 
+        <code>
+          src/Home.jsx
+        </code>
+         and save to reload.
+      </p>
+      <a
+        class="Home-link"
+        href="https://reactjs.org"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Learn React
+      </a>
+    </header>
+  </div>
+</div>
+`;

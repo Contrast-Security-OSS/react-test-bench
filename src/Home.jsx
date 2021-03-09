@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import logo from './logo.svg';
 import './Home.css';
 
 function Home() {
+  useEffect(() => {
+    document.title = 'React Test Bench';
+  }, []);
+
   return (
     <div className="Home">
       <header className="Home-header">

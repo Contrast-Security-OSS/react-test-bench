@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const SAMPLE_ATTACK = '<img src="" onerror="alert(\'gotcha!!\');">';
@@ -25,6 +26,10 @@ const createDangerousHash = () => ({
 });
 
 function DomXSS() {
+  useEffect(() => {
+    document.title = 'DOM XSS | React Test Bench';
+  }, []);
+
   return (
     <div className="Vulnerability">
       <Link to={safeLinkTo} replace>
