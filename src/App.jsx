@@ -7,12 +7,10 @@ function App() {
   return (
     <Router>
       <Navigation />
-      <main className="App">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/dom-xss" component={DomXSS} />
-        </Switch>
-      </main>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/dom-xss" component={DomXSS} />
+      </Switch>
     </Router>
   );
 }

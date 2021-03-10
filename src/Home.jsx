@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
 import logo from './logo.svg';
-import './Home.css';
+import styles from './Home.module.css';
 
 function Home() {
   useEffect(() => {
@@ -8,22 +9,20 @@ function Home() {
   }, []);
 
   return (
-    <div className="Home">
-      <header className="Home-header">
-        <img src={logo} className="Home-logo" alt="logo" />
-        <p>
-          Edit <code>src/Home.jsx</code> and save to reload.
-        </p>
-        <a
-          className="Home-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container as="main" className={styles.home}>
+      <img src={logo} className={styles.logo} alt="logo" />
+      <p>
+        Edit <code>src/Home.jsx</code> and save to reload.
+      </p>
+      <a
+        className={styles.link}
+        href="https://reactjs.org"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Learn React
+      </a>
+    </Container>
   );
 }
 

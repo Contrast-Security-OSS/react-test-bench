@@ -2,33 +2,29 @@
 
 exports[`renders learn react link 1`] = `
 <div>
-  <div
-    class="Home"
+  <main
+    class="home container"
   >
-    <header
-      class="Home-header"
+    <img
+      alt="logo"
+      class="logo"
+      src="logo.svg"
+    />
+    <p>
+      Edit 
+      <code>
+        src/Home.jsx
+      </code>
+       and save to reload.
+    </p>
+    <a
+      class="link"
+      href="https://reactjs.org"
+      rel="noopener noreferrer"
+      target="_blank"
     >
-      <img
-        alt="logo"
-        class="Home-logo"
-        src="logo.svg"
-      />
-      <p>
-        Edit 
-        <code>
-          src/Home.jsx
-        </code>
-         and save to reload.
-      </p>
-      <a
-        class="Home-link"
-        href="https://reactjs.org"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
+      Learn React
+    </a>
+  </main>
 </div>
 `;
