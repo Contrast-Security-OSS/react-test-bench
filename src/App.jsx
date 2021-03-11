@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import DomXSS from './DomXSS';
 import Home from './Home';
 import Navigation from './Navigation';
+import DomXSS from './vulnerabilities/DomXSS';
 
 function App() {
   return (

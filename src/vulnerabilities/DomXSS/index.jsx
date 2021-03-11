@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
-import styles from './Vulnerability.module.css';
+import styles from '../Vulnerability.module.css';
 
 const SAMPLE_ATTACK = '<img src="" onerror="alert(\'gotcha!!\');">';
 
@@ -28,7 +28,7 @@ const safeLinkTo = (location) => ({
   search: SAMPLE_ATTACK,
 });
 
-const createDangerousHash = () => ({
+const createInnerHTML = () => ({
   __html: decodeURIComponent(document.location.hash),
 });
 
@@ -99,7 +99,7 @@ function DomXSS() {
       <Row>
         <Col>
           <p>
-            hash: <code dangerouslySetInnerHTML={createDangerousHash()} />
+            hash: <code dangerouslySetInnerHTML={createInnerHTML()} />
           </p>
         </Col>
       </Row>
