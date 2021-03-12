@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -63,14 +62,14 @@ function DomXSS() {
       <Row>
         <Col>
           <ButtonGroup className={styles.buttons}>
-            <Link component={Button} to={safeLinkTo} replace>
+            <Link className="btn btn-primary" replace to={safeLinkTo}>
               This can't hurt me!
             </Link>
             <Link
-              component={Button}
-              variant="warning"
-              to={dangerousLinkTo}
+              className="btn btn-warning"
               replace
+              to={dangerousLinkTo}
+              variant="warning"
             >
               Exploit me!
             </Link>
