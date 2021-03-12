@@ -8,23 +8,21 @@ import { ROUTES } from './constants';
 /**
  * @param {Object} props
  * @param {import('history').Location} props.location
+ * @param {Object} props.server
+ * @param {string} props.server.framework
  */
-function Navigation(props) {
+function Navigation({ location, server }) {
   return (
     <Navbar bg="light" expand="md">
       <Container>
-        <Link
-          // as={Navbar.Brand} throws a propType warning
-          className="navbar-brand"
-          to={ROUTES.INDEX}
-        >
+        <Link className="navbar-brand" to={ROUTES.INDEX}>
           React Test Bench
         </Link>
         <Navbar.Toggle aria-controls="nav-collapse" />
         <Navbar.Collapse id="nav-collapse">
           <Nav>
             <NavDropdown
-              active={matchPath(props.location.pathname, {
+              active={matchPath(location.pathname, {
                 path: ROUTES.VULNERABILTIES.INDEX,
               })}
               id="nav-browser-vulns"
@@ -44,14 +42,15 @@ function Navigation(props) {
                 DOM XSS
               </NavLink>
             </NavDropdown>
-            <NavLink
-              // as={Nav.Link} throws a propType warning
-              className="nav-link"
-              exact
-              to={ROUTES.SERVER_VULNERABILTIES.INDEX}
-            >
-              Server Vulnerabilities
-            </NavLink>
+            {server.framework && (
+              <NavLink
+                className="nav-link"
+                exact
+                to={ROUTES.SERVER_VULNERABILTIES.INDEX}
+              >
+                {server.framework} Vulnerabilities
+              </NavLink>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

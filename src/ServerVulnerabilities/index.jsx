@@ -5,10 +5,12 @@ import styles from '../Vulnerabilities/Vulnerability.module.css';
 
 /**
  * @param {Object} props
- * @param {{ [route: string]: import('@contrast/test-bench-utils').Route}} props.serverRoutes
+ * @param {Object} props.server
+ * @param {string} props.server.framework
+ * @param {{ [route: string]: import('@contrast/test-bench-utils').Route}} props.server.routes
  */
-function ServerVulnerabilties({ serverRoutes }) {
-  const vulns = Object.values(serverRoutes).map((route) => (
+function ServerVulnerabilties({ server }) {
+  const vulns = Object.values(server.routes).map((route) => (
     <li key={route.base}>
       <a
         href={`//localhost:3001${route.base}`}
@@ -24,7 +26,7 @@ function ServerVulnerabilties({ serverRoutes }) {
     <Container as="main" className={styles.vulnerability}>
       <Row>
         <Col>
-          <h1>[FRAMEWORK] Test Bench</h1>
+          <h1>{server.framework} Test Bench</h1>
         </Col>
       </Row>
       <Row>

@@ -8,20 +8,26 @@ import ServerVulnerabilties from './ServerVulnerabilities';
 import Vulnerabilities from './Vulnerabilities';
 import DomXSS from './Vulnerabilities/DomXSS';
 
+const defaultState = {
+  routes: {},
+};
+
 function App() {
-  const [serverRoutes, setServerRoutes] = useState({});
+  const [server, setServerInfo] = useState(defaultState);
 
   useEffect(() => {
     const getRoutes = async () => {
-      const res = await axios.get('//localhost:3001/routes');
-      setServerRoutes(res.data.routes);
+      try {
+        const res = await axios.get('//localhost:3001/info');
+        setServerInfo(res.data);
+      } catch (err) {}
     };
     getRoutes();
   }, []);
 
   return (
     <Router>
-      <Navigation serverRoutes={serverRoutes} />
+      <Navigation server={server} />
       <Switch>
         <Route component={Home} exact path={ROUTES.INDEX} />
 
@@ -32,13 +38,15 @@ function App() {
         />
         <Route component={DomXSS} path={ROUTES.VULNERABILTIES.DOM_XSS} />
 
-        <Route
-          render={(props) => (
-            <ServerVulnerabilties {...props} serverRoutes={serverRoutes} />
-          )}
-          exact
-          path={ROUTES.SERVER_VULNERABILTIES.INDEX}
-        />
+        {server.framework && (
+          <Route
+            render={(props) => (
+              <ServerVulnerabilties {...props} server={server} />
+            )}
+            exact
+            path={ROUTES.SERVER_VULNERABILTIES.INDEX}
+          />
+        )}
       </Switch>
     </Router>
   );
