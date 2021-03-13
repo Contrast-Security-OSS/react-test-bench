@@ -1,26 +1,24 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import api from './api';
 import { ROUTES } from './constants';
-import Home from './Home';
-import Navigation from './Navigation';
-import ServerVulnerabilties from './ServerVulnerabilities';
-import Vulnerabilities from './Vulnerabilities';
-import DomXSS from './Vulnerabilities/DomXSS';
+import Navigation from './components/Navigation';
+import Home from './pages/Home';
+import ServerVulnerabilties from './pages/ServerVulnerabilities';
+import Vulnerabilities from './pages/Vulnerabilities';
+import DomXSS from './pages/Vulnerabilities/DomXSS';
 
 const defaultState = {
   routes: {},
 };
 
 function App() {
-  const [server, setServerInfo] = useState(defaultState);
+  const [server, setServer] = useState(defaultState);
 
   useEffect(() => {
     const getRoutes = async () => {
-      try {
-        const res = await axios.get('//localhost:3001/info');
-        setServerInfo(res.data);
-      } catch (err) {}
+      const res = await api.get('/info');
+      setServer(res.data);
     };
     getRoutes();
   }, []);

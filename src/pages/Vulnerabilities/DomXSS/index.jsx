@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
-import styles from '../Vulnerability.module.css';
+import Page from '../../Page';
+import styles from './DomXSS.module.css';
 
 const SAMPLE_ATTACK = '<img src="" onerror="alert(\'gotcha!!\');">';
 
@@ -32,12 +31,8 @@ const createInnerHTML = () => ({
 });
 
 function DomXSS() {
-  useEffect(() => {
-    document.title = 'DOM XSS | React Test Bench';
-  }, []);
-
   return (
-    <Container as="main" className={styles.vulnerability}>
+    <Page title="DOM XSS | React Test Bench">
       <Row>
         <Col>
           <h1>DOM-based XSS attacks</h1>
@@ -62,7 +57,12 @@ function DomXSS() {
       <Row>
         <Col>
           <ButtonGroup className={styles.buttons}>
-            <Link className="btn btn-primary" replace to={safeLinkTo}>
+            <Link
+              className="btn btn-primary"
+              replace
+              to={safeLinkTo}
+              variant="primary"
+            >
               This can't hurt me!
             </Link>
             <Link
@@ -102,7 +102,7 @@ function DomXSS() {
           </p>
         </Col>
       </Row>
-    </Container>
+    </Page>
   );
 }
 

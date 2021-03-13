@@ -1,7 +1,6 @@
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import styles from '../Vulnerabilities/Vulnerability.module.css';
+import Page from '../Page';
 
 /**
  * @param {Object} props
@@ -10,7 +9,9 @@ import styles from '../Vulnerabilities/Vulnerability.module.css';
  * @param {{ [route: string]: import('@contrast/test-bench-utils').Route}} props.server.routes
  */
 function ServerVulnerabilties({ server }) {
-  const vulns = Object.values(server.routes).map((route) => (
+  const title = `${server.framework} Vulnerabilities`;
+
+  const vulnerabilities = Object.values(server.routes).map((route) => (
     <li key={route.base}>
       <a
         href={`//localhost:3001${route.base}`}
@@ -23,7 +24,7 @@ function ServerVulnerabilties({ server }) {
   ));
 
   return (
-    <Container as="main" className={styles.vulnerability}>
+    <Page title={title}>
       <Row>
         <Col>
           <h1>{server.framework} Test Bench</h1>
@@ -31,10 +32,10 @@ function ServerVulnerabilties({ server }) {
       </Row>
       <Row>
         <Col>
-          <ul>{vulns}</ul>
+          <ul>{vulnerabilities}</ul>
         </Col>
       </Row>
-    </Container>
+    </Page>
   );
 }
 

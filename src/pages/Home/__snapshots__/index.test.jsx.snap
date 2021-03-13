@@ -10,21 +10,12 @@ exports[`renders learn react link 1`] = `
       class="logo"
       src="logo.svg"
     />
+    <h1>
+      React Test Bench
+    </h1>
     <p>
-      Edit 
-      <code>
-        src/Home.jsx
-      </code>
-       and save to reload.
+      An intentionally vulnerable React app for demonstrating Contrast Security.
     </p>
-    <a
-      class="link"
-      href="https://reactjs.org"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Learn React
-    </a>
   </main>
 </div>
 `;

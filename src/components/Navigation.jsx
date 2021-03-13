@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { ROUTES } from './constants';
+import { ROUTES } from '../constants';
 
 /**
  * @param {Object} props
@@ -35,6 +35,7 @@ function Navigation({ location, server }) {
               >
                 Index
               </NavLink>
+              <NavDropdown.Divider />
               <NavLink
                 className="dropdown-item"
                 to={ROUTES.VULNERABILTIES.DOM_XSS}

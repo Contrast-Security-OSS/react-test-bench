@@ -1,13 +1,12 @@
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants';
-import styles from './Vulnerability.module.css';
+import { ROUTES } from '../../constants';
+import Page from '../Page';
 
 function Vulnerabilities() {
   return (
-    <Container as="main" className={styles.vulnerability}>
+    <Page title="Browser Vulnerabilities">
       <Row>
         <Col>
           <h1>React Test Bench</h1>
@@ -22,7 +21,7 @@ function Vulnerabilities() {
           </ul>
         </Col>
       </Row>
-    </Container>
+    </Page>
   );
 }
 
