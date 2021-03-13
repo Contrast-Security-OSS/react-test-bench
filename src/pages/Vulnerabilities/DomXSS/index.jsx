@@ -1,10 +1,7 @@
 import Alert from 'react-bootstrap/Alert';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import Page from '../../Page';
-import styles from './DomXSS.module.css';
 
 const SAMPLE_ATTACK = '<img src="" onerror="alert(\'gotcha!!\');">';
 
@@ -33,75 +30,37 @@ const createInnerHTML = () => ({
 function DomXSS() {
   return (
     <Page title="DOM XSS | React Test Bench">
-      <Row>
-        <Col>
-          <h1>DOM-based XSS attacks</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Alert variant="info">
-            <Alert.Heading as="h4">Rule Information</Alert.Heading>
-            Read about DOM-based XSS{' '}
-            <Alert.Link
-              href="https://owasp.org/www-community/attacks/DOM_Based_XSS"
-              rel="noreferrer"
-              target="_blank"
-            >
-              here
-            </Alert.Link>
-            .
-          </Alert>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ButtonGroup className={styles.buttons}>
-            <Link
-              className="btn btn-primary"
-              replace
-              to={safeLinkTo}
-              variant="primary"
-            >
-              This can't hurt me!
-            </Link>
-            <Link
-              className="btn btn-warning"
-              replace
-              to={dangerousLinkTo}
-              variant="warning"
-            >
-              Exploit me!
-            </Link>
-          </ButtonGroup>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <h3>document.location</h3>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <p>
-            pathname: <code>{document.location.pathname}</code>
-          </p>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <p>
-            search: <code>{decodeURIComponent(document.location.search)}</code>
-          </p>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <p>
-            hash: <code dangerouslySetInnerHTML={createInnerHTML()} />
-          </p>
-        </Col>
-      </Row>
+      <h1>DOM-based XSS attacks</h1>
+      <Alert variant="info">
+        <Alert.Heading as="h4">Rule Information</Alert.Heading>
+        Read about DOM-based XSS{' '}
+        <Alert.Link
+          href="https://owasp.org/www-community/attacks/DOM_Based_XSS"
+          rel="noreferrer"
+          target="_blank"
+        >
+          here
+        </Alert.Link>
+        .
+      </Alert>
+      <h3>document.location</h3>
+      <p>
+        pathname: <code>{document.location.pathname}</code>
+      </p>
+      <p>
+        search: <code>{decodeURIComponent(document.location.search)}</code>
+      </p>
+      <p>
+        hash: <code dangerouslySetInnerHTML={createInnerHTML()} />
+      </p>
+      <ButtonGroup>
+        <Link className="btn btn-primary" replace to={safeLinkTo}>
+          This can't hurt me!
+        </Link>
+        <Link className="btn btn-warning" replace to={dangerousLinkTo}>
+          Exploit me!
+        </Link>
+      </ButtonGroup>
     </Page>
   );
 }

@@ -1,5 +1,3 @@
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import Page from '../Page';
 
 /**
@@ -25,16 +23,8 @@ function ServerVulnerabilties({ server }) {
 
   return (
     <Page title={title}>
-      <Row>
-        <Col>
-          <h1>{server.framework} Test Bench</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ul>{vulnerabilities}</ul>
-        </Col>
-      </Row>
+      <h1>{server.framework} Test Bench</h1>
+      <ul>{vulnerabilities}</ul>
     </Page>
   );
 }

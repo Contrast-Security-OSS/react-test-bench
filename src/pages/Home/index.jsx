@@ -9,7 +9,7 @@ function Home() {
       <h1>React Test Bench</h1>
       <p>
         An intentionally vulnerable React app for demonstrating Contrast
-        Security.
+        Security analysis and instrumentation.
       </p>
     </Page>
   );

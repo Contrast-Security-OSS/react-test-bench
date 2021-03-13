@@ -1,12 +1,9 @@
 .home {
   align-items: center;
-  background-color: #282c34;
-  color: white;
+  background-color: var(--dark) !important;
+  color: var(--white);
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  justify-content: center;
-  text-align: center;
 }
 
 .logo {
@@ -27,8 +24,4 @@
   .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.link {
-  color: #61dafb;
 }

@@ -1,3 +1,4 @@
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
@@ -13,7 +14,7 @@ function Page(props) {
   }, [props.title]);
 
   return (
-    <Container as="main" className={props.className || styles.page}>
+    <Container as="main" className={cx(styles.page, props.className)}>
       {props.children}
     </Container>
   );
