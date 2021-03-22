@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<div>
+  <main
+    class="page home container"
+  >
+    <img
+      alt="logo"
+      class="logo"
+      src="logo.svg"
+    />
+    <h1>
+      React Test Bench
+    </h1>
+    <p>
+      An intentionally vulnerable React app for demonstrating Contrast Security analysis and instrumentation.
+    </p>
+  </main>
+</div>
+`;
