@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Test and Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js v14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install dependencies
+        run: npm install -g npm@7 && npm ci
+      - name: Run tests
+        run: npm test
+      - name: Create a production build
+        run: npm run build
+      - name: Store production build
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-${{ github.sha }}
+          path: build
