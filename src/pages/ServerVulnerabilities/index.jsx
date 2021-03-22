@@ -4,12 +4,12 @@ import Page from '../Page';
  * @param {Object} props
  * @param {Object} props.server
  * @param {string} props.server.framework
- * @param {{ [route: string]: import('@contrast/test-bench-utils').Route}} props.server.routes
+ * @param {import('@contrast/test-bench-utils').Route[]} props.server.routes
  */
 function ServerVulnerabilties({ server }) {
   const title = `${server.framework} Vulnerabilities`;
 
-  const vulnerabilities = Object.values(server.routes).map((route) => (
+  const vulnerabilities = server.routes.map((route) => (
     <li key={route.base}>
       <a
         href={`//localhost:3001${route.base}`}

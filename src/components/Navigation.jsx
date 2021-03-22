@@ -43,7 +43,7 @@ function Navigation({ location, server }) {
                 DOM XSS
               </NavLink>
             </NavDropdown>
-            {server.framework && (
+            {server.framework ? (
               <NavLink
                 className="nav-link"
                 exact
@@ -51,6 +51,8 @@ function Navigation({ location, server }) {
               >
                 {server.framework} Vulnerabilities
               </NavLink>
+            ) : (
+              <Nav.Link disabled="true">Server Vulnerabilities</Nav.Link>
             )}
           </Nav>
         </Navbar.Collapse>

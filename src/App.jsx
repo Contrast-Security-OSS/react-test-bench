@@ -9,7 +9,7 @@ import Vulnerabilities from './pages/Vulnerabilities';
 import DomXSS from './pages/Vulnerabilities/DomXSS';
 
 const defaultState = {
-  routes: {},
+  routes: [],
 };
 
 function App() {
@@ -17,9 +17,17 @@ function App() {
 
   useEffect(() => {
     const getRoutes = async () => {
-      const res = await api.get('/info');
-      setServer(res.data);
+      try {
+        const res = await api.get('/info');
+        setServer(res.data);
+      } catch (err) {
+        console.warn(
+          'Ann error occurred when connecting to the Node test bench.\n%o',
+          err
+        );
+      }
     };
+
     getRoutes();
   }, []);
 
