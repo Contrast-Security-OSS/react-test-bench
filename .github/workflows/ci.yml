@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches:
+      - main
+      - react-scripts@3
 
 jobs:
   build:
@@ -23,8 +23,12 @@ jobs:
         run: npm test
       - name: Create a production build
         run: npm run build
+      - name: Extract branch name from ref
+        id: extract_branch
+        shell: bash
+        run: echo "##[set-output name=branch;]${GITHUB_REF#refs/heads/}"
       - name: Store production build
         uses: actions/upload-artifact@v2
         with:
-          name: build-${{ github.sha }}
+          name: build-${{ steps.extract_branch.outputs.branch }}-${{ github.sha }}
           path: build
