@@ -1,0 +1,7 @@
+source s1: document.location.hash
+
+propagator p1: decodeURIComponent(*)
+
+vulnerability dom_xss: require("react").createElement(_, *.dangerouslySetInnerHTML)
+vulnerability dom_xss: require("react/jsx-runtime").jsx(_, *.dangerouslySetInnerHTML)
+vulnerability dom_xss: require("react/jsx-runtime").jsxs(_, *.dangerouslySetInnerHTML)
