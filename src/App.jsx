@@ -22,7 +22,7 @@ function App() {
         setServer(res.data);
       } catch (err) {
         console.warn(
-          'Ann error occurred when connecting to the Node test bench.\n%o',
+          'An error occurred when connecting to the Node test bench.\n%o',
           err
         );
       }
