@@ -36,7 +36,7 @@ function DomXSS() {
         Read about DOM-based XSS{' '}
         <Alert.Link
           href="https://owasp.org/www-community/attacks/DOM_Based_XSS"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank"
         >
           here

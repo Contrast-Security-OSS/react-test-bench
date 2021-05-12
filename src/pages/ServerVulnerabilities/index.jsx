@@ -13,7 +13,7 @@ function ServerVulnerabilties({ server }) {
     <li key={route.base}>
       <a
         href={`//localhost:3001${route.base}`}
-        rel="noreferrer"
+        rel="noopener noreferrer"
         target="_blank"
       >
         {route.name}
