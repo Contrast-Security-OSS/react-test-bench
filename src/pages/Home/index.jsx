@@ -1,3 +1,4 @@
+import React from 'react';
 import Page from '../Page';
 import styles from './index.module.css';
 import logo from './logo.svg';

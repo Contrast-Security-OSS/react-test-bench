@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import styles from './Page.module.css';
 
