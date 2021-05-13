@@ -1,6 +1,6 @@
 {
   "name": "react-test-bench",
-  "version": "4.0.3",
+  "version": "4.0.3-0",
   "private": true,
   "license": "MIT",
   "dependencies": {
